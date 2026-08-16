@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cihat Çıtak — Senior Game Developer</title>
+<meta name="description" content="Senior Game Developer — Unity & C#. 5+ years shipping mobile games: from hyper-casual prototypes to a live mid-core FPS with 200M+ downloads.">
+<meta property="og:title" content="Cihat Çıtak — Senior Game Developer">
+<meta property="og:description" content="Unity & C# — Mobile FPS, Puzzle & Casual Games. 200M+ downloads flagship, 15+ shipped titles.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cihatcitak.github.io">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎮%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-soft: #161b22;
+    --card: #1b2230;
+    --border: #2b3648;
+    --text: #e6edf3;
+    --muted: #94a3b8;
+    --accent: #4f9cf9;
+    --accent-2: #7ee2a8;
+    --navy: #1f3864;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(13,17,23,.85); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+  nav .logo { font-weight: 700; color: var(--text); letter-spacing: .5px; }
+  nav .logo span { color: var(--accent); }
+  nav ul { display: flex; gap: 22px; list-style: none; }
+  nav ul a { color: var(--muted); font-size: 14.5px; font-weight: 500; }
+  nav ul a:hover { color: var(--text); text-decoration: none; }
+
+  /* ---------- Hero ---------- */
+  header { padding: 72px 0 56px; background: radial-gradient(1000px 500px at 75% -10%, rgba(79,156,249,.14), transparent 60%); }
+  .hero { display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
+  .hero-photo {
+    width: 210px; height: 210px; border-radius: 24px; object-fit: cover; object-position: top;
+    border: 2px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,.45);
+    background: #e8e8e8;
+  }
+  .hero-text { flex: 1; min-width: 300px; }
+  .kicker { color: var(--accent-2); font-weight: 600; letter-spacing: 2.5px; font-size: 13px; text-transform: uppercase; margin-bottom: 8px; }
+  h1 { font-size: clamp(34px, 5.5vw, 52px); line-height: 1.1; margin-bottom: 10px; }
+  .role { font-size: 19px; color: var(--muted); font-weight: 500; margin-bottom: 18px; }
+  .role b { color: var(--text); }
+  .summary { color: var(--muted); font-size: 15.5px; max-width: 720px; margin-bottom: 24px; }
+  .summary strong { color: var(--text); font-weight: 600; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 20px; border-radius: 10px; font-weight: 600; font-size: 14.5px;
+    border: 1px solid var(--border); color: var(--text); transition: all .15s ease;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); border-color: var(--accent); color: #0b1220; }
+  .btn-primary:hover { filter: brightness(1.1); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---------- Stats ---------- */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin: 44px 0 0; }
+  .stat { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; }
+  .stat .num { font-size: 26px; font-weight: 700; color: var(--accent); }
+  .stat .lbl { font-size: 13.5px; color: var(--muted); margin-top: 2px; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 56px 0; }
+  section.alt { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  h2 { font-size: 26px; margin-bottom: 6px; }
+  .sub { color: var(--muted); margin-bottom: 30px; font-size: 15px; }
+
+  /* ---------- Experience ---------- */
+  .xp { border-left: 2px solid var(--border); padding-left: 28px; position: relative; }
+  .xp-item { position: relative; padding-bottom: 34px; }
+  .xp-item:last-child { padding-bottom: 0; }
+  .xp-item::before {
+    content: ""; position: absolute; left: -35px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 0 4px rgba(79,156,249,.18);
+  }
+  .xp-head { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: baseline; }
+  .xp-title { font-size: 18px; font-weight: 700; }
+  .xp-title .at { color: var(--accent); }
+  .xp-date { color: var(--muted); font-size: 13.5px; white-space: nowrap; }
+  .xp-meta { color: var(--muted); font-size: 14px; margin-bottom: 10px; }
+  .xp ul { margin: 0 0 0 18px; color: var(--muted); font-size: 14.5px; }
+  .xp li { margin-bottom: 6px; }
+  .xp li::marker { color: var(--accent); }
+  .tag {
+    display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 10px;
+    border-radius: 999px; border: 1px solid var(--border); color: var(--accent-2); margin-left: 8px; vertical-align: 2px;
+  }
+
+  /* ---------- Games ---------- */
+  .games { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 18px; }
+  .game {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    overflow: hidden; transition: transform .15s ease, border-color .15s ease; display: block; color: var(--text);
+  }
+  .game:hover { transform: translateY(-4px); border-color: var(--accent); text-decoration: none; }
+  .game img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+  .game .g-body { padding: 10px 12px 12px; }
+  .game .g-name { font-size: 13.5px; font-weight: 600; line-height: 1.3; }
+  .game .g-studio { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .more-titles { margin-top: 22px; color: var(--muted); font-size: 14px; }
+  .chip {
+    display: inline-block; background: var(--card); border: 1px solid var(--border);
+    border-radius: 999px; padding: 4px 13px; font-size: 13px; color: var(--muted); margin: 4px 4px 0 0;
+  }
+
+  /* ---------- Skills ---------- */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .skill-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; }
+  .skill-card h3 { font-size: 15px; margin-bottom: 10px; color: var(--accent-2); }
+  .skill-card .chip { margin: 0 6px 6px 0; color: var(--text); }
+  .skill-card.hl { border-color: rgba(126,226,168,.4); background: linear-gradient(160deg, rgba(126,226,168,.07), var(--card) 55%); }
+
+  /* ---------- Education / Footer ---------- */
+  .edu { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  footer { border-top: 1px solid var(--border); padding: 40px 0 48px; text-align: center; color: var(--muted); font-size: 14px; }
+  footer .links { display: flex; gap: 20px; justify-content: center; margin-bottom: 14px; flex-wrap: wrap; }
+  @media (max-width: 640px) {
+    .hero { gap: 28px; }
+    nav ul { gap: 14px; }
+    nav ul li:nth-child(n+4) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#">Cihat<span>Çıtak</span></a>
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#games">Games</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="assets/CihatCitak_Senior_Game_Developer_CV.pdf">CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="hero">
+      <img class="hero-photo" src="assets/photo.png" alt="Cihat Çıtak">
+      <div class="hero-text">
+        <div class="kicker">Senior Game Developer</div>
+        <h1>Cihat Çıtak</h1>
+        <div class="role">Unity &amp; C# · <b>Mobile FPS, Puzzle &amp; Casual Games</b> · Istanbul, Turkey</div>
+        <p class="summary">
+          Senior Game Developer with <strong>5+ years of experience</strong> building and shipping Unity mobile games across the
+          full spectrum of the industry, from rapid hyper-casual prototypes to casual puzzle titles played by millions, to a live
+          mid-core FPS with <strong>200M+ downloads</strong>. Has owned every stage of a game's life: concept prototyping and CPI
+          testing, feature development from concept to live release, live-game content updates, and performance optimization for
+          low-end devices. Strong in <strong>C#, gameplay architecture, real-time multiplayer</strong> with Photon and Photon
+          Fusion, and data-driven iteration in close collaboration with design and product teams.
+        </p>
+        <div class="cta">
+          <a class="btn btn-primary" href="assets/CihatCitak_Senior_Game_Developer_CV.pdf">Download CV</a>
+          <a class="btn btn-ghost" href="https://github.com/CihatCitak">GitHub</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/cihatcitak/">LinkedIn</a>
+          <a class="btn btn-ghost" href="mailto:cihatcitakc@gmail.com">Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">200M+</div><div class="lbl">Downloads on flagship FPS</div></div>
+      <div class="stat"><div class="num">15+</div><div class="lbl">Shipped titles</div></div>
+      <div class="stat"><div class="num">5+</div><div class="lbl">Years of experience</div></div>
+      <div class="stat"><div class="num">60 FPS</div><div class="lbl">On 2GB low-end devices</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Work Experience</h2>
+    <p class="sub">From 10-day hyper-casual prototypes to a 200M+ download live multiplayer FPS.</p>
+    <div class="xp">
+
+      <div class="xp-item">
+        <div class="xp-head">
+          <div class="xp-title">Game Developer <span class="at">@ Vertigo Games</span><span class="tag">Current</span></div>
+          <div class="xp-date">March 2026 — Present</div>
+        </div>
+        <div class="xp-meta">Istanbul, Turkey · Live mid-core mobile FPS · Photon &amp; Photon Fusion</div>
+        <ul>
+          <li>Develop gameplay features for a live mobile FPS with 200M+ downloads, built in Unity with real-time multiplayer on Photon and Photon Fusion.</li>
+          <li>Implement and iterate on core gameplay systems including combat mechanics, weapon behavior and game modes, keeping gameplay responsive and fair in a networked multiplayer environment.</li>
+          <li>Work on client-side gameplay logic and state synchronization over Photon, handling latency, prediction and edge cases that affect moment-to-moment combat feel.</li>
+          <li>Profile and optimize networked gameplay code under real match conditions, reducing CPU spikes and GC pressure so combat stays smooth across the huge device spread of a global player base.</li>
+          <li>Debug and fix live gameplay issues surfaced by a massive player base, tracking exceptions and logs through Sentry and reproducing networked edge cases to ship fixes without disrupting the live service.</li>
+          <li>Build features with an AI-driven workflow, using agentic coding tools (Claude Code, Cursor, GitHub Copilot) for implementation, debugging and code review.</li>
+          <li>Collaborate with design and product teams to ship gameplay updates to a large live player base, balancing new content against stability and performance on a wide range of devices.</li>
+        </ul>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-head">
+          <div class="xp-title">Senior Game Developer <span class="at">@ NARCADE</span></div>
+          <div class="xp-date">August 2022 — December 2025</div>
+        </div>
+        <div class="xp-meta">Istanbul, Turkey · Casual puzzle games played by millions</div>
+        <ul>
+          <li>Owned core gameplay mechanics for multiple Unity mobile puzzle games (Match-3, Find the Object), shaping player interaction, difficulty curves and overall game feel together with the design team.</li>
+          <li>Designed and shipped new gameplay features from concept to live release, driving technical decisions in feature and game design discussions to align them with player experience goals.</li>
+          <li>Created and balanced 30+ gameplay items and boosters, tuning mechanics, visual feedback and usability to support puzzle variety and long-term player progression.</li>
+          <li>Optimized mobile performance across draw calls, GC allocations and memory usage, eliminating frame spikes and holding a stable 60 FPS down to low-end 2GB RAM Android devices.</li>
+          <li>Built modular gameplay systems and custom Unity editor tools, including level editors and content pipelines, cutting level creation time from hours to minutes for the design and QA teams.</li>
+          <li>Maintained and supported live titles, refining mechanics, UX clarity and pacing based on internal playtests and analytics feedback.</li>
+          <li>Mentored junior developers and ran code reviews across the gameplay team, establishing shared architecture and coding standards.</li>
+        </ul>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-head">
+          <div class="xp-title">Game Developer <span class="at">@ Yolo Game Studio</span></div>
+          <div class="xp-date">March 2022 — August 2022</div>
+        </div>
+        <div class="xp-meta">Istanbul, Turkey · Hyper-casual prototyping &amp; CPI testing</div>
+        <ul>
+          <li>Prototyped 10+ hyper-casual and puzzle game concepts in Unity on 5-10 day iteration cycles to evaluate gameplay clarity, player engagement and CPI performance.</li>
+          <li>Integrated analytics and ad SDKs (Firebase, GameAnalytics, Adjust, AdMob, Unity Ads) to support data-driven iteration and creative performance evaluation.</li>
+          <li>Optimized assets and memory usage to improve load times and gameplay smoothness on low-end mobile devices.</li>
+          <li>Worked with design and marketing teams to refine core gameplay loops and prepare playable builds aligned with creative and product goals.</li>
+        </ul>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-head">
+          <div class="xp-title">Game Developer <span class="at">@ Star Hunter Games</span></div>
+          <div class="xp-date">September 2021 — February 2022</div>
+        </div>
+        <div class="xp-meta">Istanbul, Turkey · Casual game prototypes</div>
+        <ul>
+          <li>Implemented core gameplay mechanics and loops using Unity physics, animation and mobile input systems.</li>
+          <li>Supported the full prototype development lifecycle, from gameplay concept to Google Play deployment for early testing.</li>
+          <li>Iterated on mechanics and visual clarity based on internal playtest results and feedback.</li>
+          <li>Contributed to ideation sessions and internal game jams, prototyping new casual and puzzle game ideas.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="games" class="alt">
+  <div class="wrap">
+    <h2>Shipped Games</h2>
+    <p class="sub">A selection of live titles I've worked on — tap a card to open its store page.</p>
+    <div class="games">
+      <a class="game" href="https://play.google.com/store/apps/details?id=com.critical.strike2">
+        <img src="assets/games/critical-strike.jpg" alt="Critical Strike CS: Online FPS" loading="lazy">
+        <div class="g-body"><div class="g-name">Critical Strike CS: Online FPS</div><div class="g-studio">Vertigo Games · 200M+</div></div>
+      </a>
+      <a class="game" href="https://play.google.com/store/apps/details?id=com.polygon.arena">
+        <img src="assets/games/polygun-arena.jpg" alt="Polygun Arena: Online Shooter" loading="lazy">
+        <div class="g-body"><div class="g-name">Polygun Arena: Online Shooter</div><div class="g-studio">Vertigo Games</div></div>
+      </a>
+      <a class="game" href="https://apps.apple.com/us/app/zen-master-design-relax/id6458984641">
+        <img src="assets/games/zen-master.jpg" alt="Zen Master" loading="lazy">
+        <div class="g-body"><div class="g-name">Zen Master</div><div class="g-studio">NARCADE</div></div>
+      </a>
+      <a class="game" href="https://apps.apple.com/us/app/garden-home-design-game/id6744893390">
+        <img src="assets/games/garden-home.jpg" alt="Garden &amp; Home" loading="lazy">
+        <div class="g-body"><div class="g-name">Garden &amp; Home</div><div class="g-studio">NARCADE</div></div>
+      </a>
+      <a class="game" href="https://apps.apple.com/us/app/royal-decor-renovate-design/id6739345641">
+        <img src="assets/games/royal-decor.jpg" alt="Royal Decor" loading="lazy">
+        <div class="g-body"><div class="g-name">Royal Decor</div><div class="g-studio">NARCADE</div></div>
+      </a>
+      <a class="game" href="https://apps.apple.com/us/app/friends-adventure-match/id6479395668">
+        <img src="assets/games/friends-adventure.jpg" alt="Friends Adventure Match" loading="lazy">
+        <div class="g-body"><div class="g-name">Friends Adventure Match</div><div class="g-studio">NARCADE</div></div>
+      </a>
+      <a class="game" href="https://apps.apple.com/us/app/match-3d-box-triple-match/id6737053336">
+        <img src="assets/games/match-3d-box.jpg" alt="Match 3D Box" loading="lazy">
+        <div class="g-body"><div class="g-name">Match 3D Box</div><div class="g-studio">NARCADE</div></div>
+      </a>
+      <a class="game" href="https://apps.apple.com/us/app/triple-farm-matching-game/id6739527330">
+        <img src="assets/games/triple-farm.jpg" alt="Triple Farm" loading="lazy">
+        <div class="g-body"><div class="g-name">Triple Farm</div><div class="g-studio">NARCADE</div></div>
+      </a>
+      <a class="game" href="https://apps.apple.com/us/app/matchland-hidden-object-game/id6748383469">
+        <img src="assets/games/match-land.jpg" alt="Match Land" loading="lazy">
+        <div class="g-body"><div class="g-name">Match Land</div><div class="g-studio">NARCADE</div></div>
+      </a>
+      <a class="game" href="https://apps.apple.com/tr/app/bunker-rush-3d/id1561863259">
+        <img src="assets/games/bunker-rush.jpg" alt="Bunker Rush 3D" loading="lazy">
+        <div class="g-body"><div class="g-name">Bunker Rush 3D</div><div class="g-studio">Star Hunter Games</div></div>
+      </a>
+      <a class="game" href="https://apps.apple.com/tr/app/ramboat-loot/id1575042145">
+        <img src="assets/games/ramboat-loot.jpg" alt="Ramboat Loot" loading="lazy">
+        <div class="g-body"><div class="g-name">Ramboat Loot</div><div class="g-studio">Star Hunter Games</div></div>
+      </a>
+      <a class="game" href="https://apps.apple.com/tr/app/mom-simulator-3d/id1594945593">
+        <img src="assets/games/mom-simulator.jpg" alt="Mom Simulator 3D" loading="lazy">
+        <div class="g-body"><div class="g-name">Mom Simulator 3D</div><div class="g-studio">Star Hunter Games</div></div>
+      </a>
+    </div>
+    <div class="more-titles">
+      Also prototyped &amp; shipped at Yolo Game Studio:
+      <span class="chip">The Last Truck</span>
+      <span class="chip">Last Man Standing</span>
+      <span class="chip">City Builder</span>
+      <span class="chip">Cube Arena</span>
+      <span class="chip">Rotate Puzzle</span>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="sub">The toolbox behind shipped, optimized, live mobile games.</p>
+    <div class="skills">
+      <div class="skill-card">
+        <h3>Engine &amp; Languages</h3>
+        <span class="chip">Unity3D</span><span class="chip">C#</span><span class="chip">.NET</span>
+      </div>
+      <div class="skill-card hl">
+        <h3>AI-Driven Development</h3>
+        <span class="chip">Claude Code</span><span class="chip">Cursor</span><span class="chip">GitHub Copilot</span><span class="chip">Agentic Coding Workflows</span><span class="chip">AI-Assisted Debugging &amp; Code Review</span>
+      </div>
+      <div class="skill-card">
+        <h3>Multiplayer &amp; Networking</h3>
+        <span class="chip">Photon</span><span class="chip">Photon Fusion</span><span class="chip">PlayFab</span><span class="chip">Client-Side Prediction</span><span class="chip">State Synchronization</span>
+      </div>
+      <div class="skill-card">
+        <h3>Libraries &amp; Tools</h3>
+        <span class="chip">DOTween</span><span class="chip">UniTask</span><span class="chip">R3 (UniRx)</span><span class="chip">Zenject</span><span class="chip">Odin Inspector</span><span class="chip">Addressables</span><span class="chip">ScriptableObjects</span><span class="chip">Custom Editors</span><span class="chip">Unity Profiler</span>
+      </div>
+      <div class="skill-card">
+        <h3>Architecture</h3>
+        <span class="chip">SOLID Principles</span><span class="chip">Event-Driven Systems</span><span class="chip">Dependency Injection</span><span class="chip">Design Patterns</span>
+      </div>
+      <div class="skill-card">
+        <h3>Mobile Production</h3>
+        <span class="chip">Performance Optimization</span><span class="chip">Memory &amp; GC Optimization</span><span class="chip">Profiling &amp; Debugging</span><span class="chip">Sentry</span><span class="chip">iOS &amp; Android Build Pipelines</span><span class="chip">LiveOps</span><span class="chip">CPI Prototyping</span>
+      </div>
+      <div class="skill-card">
+        <h3>Monetization &amp; Analytics</h3>
+        <span class="chip">AdMob</span><span class="chip">Unity Ads</span><span class="chip">Firebase</span><span class="chip">GameAnalytics</span><span class="chip">Adjust</span>
+      </div>
+      <div class="skill-card">
+        <h3>Collaboration</h3>
+        <span class="chip">Git</span><span class="chip">Agile/Scrum</span><span class="chip">Code Review</span><span class="chip">Mentoring</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="alt">
+  <div class="wrap">
+    <h2>Education</h2>
+    <p class="sub"></p>
+    <div class="edu">
+      <div>
+        <b>Bachelor of Science in Computer Engineering (English)</b><br>
+        <span style="color: var(--muted);">University of Karabük</span>
+      </div>
+      <div style="color: var(--muted);">2020</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="mailto:cihatcitakc@gmail.com">cihatcitakc@gmail.com</a>
+    <a href="https://github.com/CihatCitak">GitHub</a>
+    <a href="https://www.linkedin.com/in/cihatcitak/">LinkedIn</a>
+    <a href="assets/CihatCitak_Senior_Game_Developer_CV.pdf">Download CV</a>
+  </div>
+  <div>Istanbul, Turkey · © 2026 Cihat Çıtak</div>
+</footer>
+
+</body>
+</html>
