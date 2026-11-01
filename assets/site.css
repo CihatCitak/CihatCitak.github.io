@@ -5,10 +5,6 @@
   --ink: #121412;
   --ink-2: #4a4f48;
   --lime: #d4f53c;
-  --night: #131512;
-  --night-2: #1e211d;
-  --on-night: #eceee7;
-  --on-night-2: #a9aea6;
 
   --frame: clamp(20px, 4vw, 56px);
   --section-gap: clamp(96px, 12vw, 192px);
@@ -54,7 +50,6 @@ p { text-wrap: pretty; }
   outline: 3px solid var(--ink);
   outline-offset: 3px;
 }
-.field-night :focus-visible { outline-color: var(--lime); }
 
 .frame {
   width: 100%;
@@ -98,13 +93,6 @@ h3 {
   line-height: 1.12;
   letter-spacing: -0.01em;
 }
-.statement {
-  font-size: var(--fs-statement);
-  line-height: 1.3;
-  font-weight: 420;
-  max-width: 34ch;
-}
-
 /* ---------- Controls ---------- */
 .btn {
   display: inline-flex;
@@ -129,11 +117,9 @@ h3 {
 .btn-small { min-height: 40px; padding: 8px 16px; font-size: 0.9375rem; }
 .btn-solid { background: var(--ink); color: var(--lime); }
 .btn-quiet { background: var(--ground-2); color: var(--ink); }
-.btn-lime { background: var(--lime); color: var(--ink); }
 @media (hover: hover) {
   .btn-solid:hover { background: #2a2e29; }
   .btn-quiet:hover { background: #d4d7cf; }
-  .btn-lime:hover { background: #e4fb7a; }
 }
 
 .text-link {
@@ -245,30 +231,9 @@ h3 {
 @media (hover: hover) {
   .mosaic-grid a:hover img { scale: 1.06; }
 }
-.mosaic figcaption {
-  margin-block-start: 14px;
-  font-size: var(--fs-small);
-  color: var(--ink-2);
-}
-
 /* ---------- Sections ---------- */
 .section { padding-block: var(--section-gap) 0; }
-.split-head {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 24px clamp(32px, 5vw, 88px);
-  align-items: end;
-  margin-block-end: clamp(48px, 6vw, 88px);
-}
-
-/* What I bring */
-.claims {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(40px, 4.5vw, 64px) clamp(32px, 4vw, 64px);
-}
-.claims h3 { margin-block-end: 12px; }
-.claims p { max-width: 40ch; }
+main { padding-block-end: var(--section-gap); }
 
 /* Career */
 #career h2 { margin-block-end: clamp(40px, 5vw, 64px); }
@@ -364,72 +329,8 @@ h3 {
   .role-games a:hover span { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
 }
 
-/* Netcode */
-.field-night {
-  margin-block-start: var(--section-gap);
-  background: var(--night);
-  color: var(--on-night);
-}
-.field-night .section { padding-block: var(--section-gap); }
-.field-night .statement { color: var(--on-night); }
-.demo-controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px 32px;
-  margin-block-end: 20px;
-}
-.ping {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-weight: 650;
-}
-.ping input {
-  width: min(320px, 56vw);
-  height: 44px;
-  accent-color: var(--lime);
-  cursor: pointer;
-}
-.ping output {
-  min-width: 4.5em;
-  font-variant-numeric: tabular-nums;
-}
-.lanes {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(12px, 2vw, 24px);
-}
-.lane figcaption {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin-block-end: 10px;
-  font-size: var(--fs-small);
-}
-.lane-name { font-weight: 700; }
-.lane-wait { color: var(--on-night-2); font-variant-numeric: tabular-nums; }
-.lane canvas {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  background: var(--night-2);
-  cursor: crosshair;
-  touch-action: manipulation;
-  user-select: none;
-}
-.demo-note {
-  margin-block-start: 16px;
-  max-width: 68ch;
-  font-size: var(--fs-small);
-  color: var(--on-night-2);
-}
-html:not(.js) .demo-controls,
-html:not(.js) .lanes,
-html:not(.js) #demo-help { display: none; }
-
 /* Games */
+#games h2 { margin-block-end: clamp(40px, 5vw, 72px); }
 .game-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -507,64 +408,6 @@ html:not(.js) #demo-help { display: none; }
 .education h3 { margin-block-end: 20px; }
 .edu-degree { font-weight: 700; font-size: 1.1875rem; margin-block-end: 6px; }
 
-/* Contact */
-.field-lime {
-  margin-block-start: var(--section-gap);
-  background: var(--lime);
-  color: var(--ink);
-}
-.field-lime { overflow-x: clip; }
-.contact {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 48px;
-  align-items: end;
-  padding-block: clamp(80px, 10vw, 160px) 40px;
-}
-.contact-portrait {
-  width: clamp(160px, 18vw, 257px);
-  aspect-ratio: 257 / 400;
-  object-fit: cover;
-  object-position: 50% 0%;
-  outline: 1px solid oklch(0 0 0 / 0.1);
-  outline-offset: -1px;
-}
-.signoff, .colophon { grid-column: 1 / -1; }
-.contact-lede {
-  margin-block-start: 20px;
-  font-size: var(--fs-statement);
-  line-height: 1.3;
-  max-width: 34ch;
-}
-.contact-mail {
-  display: inline-block;
-  margin-block-start: clamp(32px, 4vw, 56px);
-  font-size: clamp(1.625rem, 4.4vw, 4rem);
-  font-weight: 760;
-  font-stretch: 85%;
-  letter-spacing: -0.015em;
-  line-height: 1.1;
-  text-decoration: underline;
-  text-decoration-thickness: 0.06em;
-  text-underline-offset: 0.16em;
-  overflow-wrap: anywhere;
-  transition: text-decoration-color 150ms ease-out;
-}
-@media (hover: hover) {
-  .contact-mail:hover { text-decoration-color: transparent; }
-}
-.contact .actions { margin-block-start: 32px; }
-.signoff {
-  margin-block-start: clamp(64px, 7vw, 104px);
-  font-size: calc((min(100vw, 1440px) - 2 * var(--frame)) * 0.238);
-  font-weight: 860;
-  font-stretch: 72%;
-  letter-spacing: -0.03em;
-  line-height: 0.8;
-  white-space: nowrap;
-}
-.colophon { margin-block-start: 32px; font-size: var(--fs-small); }
-
 /* ---------- Motion ---------- */
 .js [data-reveal] {
   opacity: 0;
@@ -594,7 +437,6 @@ html:not(.js) #demo-help { display: none; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1080px) {
-  .claims { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .skills-layout { grid-template-columns: minmax(0, 1fr); }
   .role { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
   .role-games { grid-column: 2; }
@@ -608,7 +450,6 @@ html:not(.js) #demo-help { display: none; }
     min-height: 0;
     gap: 48px;
   }
-  .split-head { grid-template-columns: minmax(0, 1fr); }
   .role { grid-template-columns: minmax(0, 1fr); }
   .role-games { grid-column: auto; }
   .game-list { grid-template-columns: minmax(0, 1fr); }
@@ -621,12 +462,8 @@ html:not(.js) #demo-help { display: none; }
   .portrait { width: 88px; height: 110px; margin-block-end: 20px; }
   .hero-lede { font-size: 1.0625rem; }
   .actions .btn + .btn { margin-inline-start: 0; }
-  .claims { grid-template-columns: minmax(0, 1fr); }
   .skills { grid-template-columns: minmax(0, 1fr); }
-  .lanes { grid-template-columns: minmax(0, 1fr); }
 
-  .contact { grid-template-columns: minmax(0, 1fr); }
-  .contact-portrait { display: none; }
   .timeline-track { flex-direction: column; gap: 4px; }
   .timeline-track li { flex: none; }
   .timeline-track li.tl-gap { display: none; }
